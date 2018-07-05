@@ -133,7 +133,25 @@ body {
 
 }
 
+#choisirRequin {
+    display: none;
+}
 
+#divPseudoRequin1 {
+    display: none;
+}
+
+#divPseudoRequin2 {
+    display: none;
+}
+
+#erreurPseudo {
+    display: none;
+}
+
+#compteARebours {
+
+}
 
 /***SHARK***/
 
@@ -152,6 +170,29 @@ body {
 }
 
 #sharkContenu {
+    /*sprite ou image */
+    position: absolute;
+    display: block;
+    z-index: 10;
+}
+
+/***SHARK REQUIN2***/
+
+#sharkContainerRequin2 {
+    /* masque */
+    width: 337px;
+    /* largeur d image la plus gde de toutes mes sprites */
+    height: 249px;
+    /* hauteur d image la plus gde de toutes mes sprites */
+    position: absolute;
+    z-index: 10;
+    overflow: hidden;
+    top: 200px;
+    /*position top initial de la 1ere image du sprite du geste sharkAttack */
+    /* border: 1px solid black; */
+}
+
+#sharkContenuRequin2 {
     /*sprite ou image */
     position: absolute;
     display: block;
@@ -182,7 +223,7 @@ body {
     left: -1639px;
 }
 
-/*******MINES************************/
+/******MINES***********************
 #mineContainer {
     width: px;
     height: px;
@@ -190,10 +231,10 @@ body {
     overflow: hidden;
     z-index: 8;
     top: px;
-    /* hauteur d apparition du poisson */
+    /* hauteur d apparition du poisson 
     left: px;
-    /*IMPORTANT A LA FIN DU DEV FAIRE PARTIR LES POISSONS DE 2000 PX SOIT PLUS LOIN QUE LA LARGEUR Du masqueDU BACKGROUND */
-    /* border: 1px solid black; */
+    /*IMPORTANT A LA FIN DU DEV FAIRE PARTIR LES POISSONS DE 2000 PX SOIT PLUS LOIN QUE LA LARGEUR Du masqueDU BACKGROUND 
+    border: 1px solid black; 
 }
 
 #mineContenu {
@@ -202,7 +243,7 @@ body {
     z-index: 8;
     top: px;
     left: px;
-}
+} */
 
 
 

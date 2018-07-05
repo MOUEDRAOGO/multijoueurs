@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>SHARKOO - Marc OUEDRAOGO - jeu CV - developpeur Integrateur Web Javascript</title>
+    <link rel="stylesheet" href="../public/css/cssjeuABEv2.css" />
+
+
+    <script src="../public/js/ConstructeurSharkABEv2.js"></script>
+    <script src="../public/js/ConstructeurenemiesABEv2.js"></script>
+    <!-- <script src="../public/JS/ConstructeurMinesv2.js"></script> -->
+    <script src="../public/js/mainJeuABEv2.js"></script>
+
+    <script src="../node_modules/socket.io-client/dist/socket.io.js"></script>
+
+
+    <audio id="audio" controls autoplay loop>
+        <source src="../public/Assets/musique/sonBulles.mp3" type="audio/mpeg"> format de musique non supporté !
+    </audio>
+</head>
+
+<body id="body">
+    <div id="background">
+
+        <div id="menuJeu">
+
+            <div id="boutonInterrogation">
+                <img src="../public/Assets/UI/boutonInterrogation.png" alt="Règles du jeu"> </div>
+
+            <div id="boutonRejouer">
+                <img src="../public/Assets/UI/boutonRejouer.png" alt="Rejouer"> </div>
+
+            <div id="tempsRestant"></div>
+
+            <div id="menuHighScores"></div>
+
+            <div id="CV">
+                <a href="../public/Assets/CV/Marc_OUEDRAOGO_Developpeur_Web_Javascript.pdf" target="_blank">CV</a>
+            </div>
+
+
+            <div id="score">0</div>
+
+        </div>
+
+
+        <div id="regleJeu">
+            <img src="../public/Assets/UI/regleJeu.png" alt="regleJeu">
+        </div>
+
+        <!-- choisir requin -->
+        <div id="choisirRequin">
+
+            <div id="choixRequin1">
+                <p>
+                    <img src="../public/Assets/images/Shark/avatarRequin1.png" alt="avatarRequin1">
+                </p>
+                <p>
+                    <input type="submit" value="CHOISIR">
+                </p>
+            </div>
+
+            <div id="choixRequin2">
+                <p>
+                    <img src="../public/Assets/images/Shark/avatarRequin2.png" alt="avatarRequin2">
+                </p>
+                <p>
+                    <input type="submit" value="CHOISIR">
+                </p>
+            </div>
+        </div>
+        <!--  -->
+
+        <!-- formulaire saisie pseudo et mdp Requin1-->
+        <div id="divPseudoRequin1">
+            <form id="formPseudoRequin1">
+                <p>Pseudo :
+                    <input id="pseudoRequin1" type="text" />
+                </p>
+                <p>Mot de passe :
+                    <input id="motDePasseRequin1" type="text" />
+                </p>
+                <p>
+                    <input type="submitRequin1" value="JOUER">
+                </p>
+            </form>
+        </div>
+        <!--  -->
+
+        <!-- formulaire saisie pseudo et mdp Requin2-->
+        <div id="divPseudoRequin2">
+            <form id="formPseudoRequin2">
+                <p>Pseudo :
+                    <input id="pseudoRequin2" type="text" />
+                </p>
+                <p>Mot de passe :
+                    <input id="motDePasseRequin2" type="text" />
+                </p>
+                <p>
+                    <input type="submitRequin2" value="JOUER">
+                </p>
+            </form>
+        </div>
+        <!--  -->
+
+        <!-- Erreur pseudo -->
+        <div id="erreurPseudo">
+            <p> Ce pseudo est deja utilisé, veuillez en saisir un autre</p>
+        </div>
+        <!--  -->
+
+        <!-- fenetre compte a rebours jeu-->
+
+        <div id="compteARebours"> DEPART DANS :
+            <p id="321Depart"></p>
+        </div>
+        <!--  -->
+
+        <!-- sprite Requin1 -->
+        <div id="sharkContainer">
+            <img id="sharkContenu" src="../public/Assets/Images/Shark/Animations/attack/spriteShark.png" />
+        </div>
+        <!--  -->
+
+        <!-- sprite Requin2 -->
+        <div id="sharkContainerRequin2">
+            <img id="sharkContenuRequin2" src="../public/Assets/Images/Shark/Animations/attack/spriteShark2.png" />
+        </div>
+        <!--  -->
+
+        <!-- fenetre win -->
+        <div id="win">
+            <img src="../public/Assets/UI/Gagne.png" alt="">
+        </div>
+        <!--  -->
+
+        <!--  fenetre gameover-->
+        <div id="gameover">
+            <img src="../public/Assets/UI/Perdu.png" alt="">
+        </div>
+        <!--  -->
+
+        <!-- image tresor -->
+    </div>
+    <div id="treisureContainer">
+        <a href="../public/Assets/CV/Marc_OUEDRAOGO_Developpeur_Web_Javascript.pdf" target="_blank">
+            <img id="treisureContenu" class="treisureContenu" src="../public/Assets/images/Tresor/spritesheetTreisureChest.png" />
+        </a>
+    </div>
+    <!--  -->
+
+    <!-- fenetre high scores -->
+    <div id="highScores">
+        <p id="hightScoresPseudo"></p>
+        <p id="hightScoresPoints"> + 'Points'</p>
+    </div>
+    <!--  -->
+
+    <noscript>
+        <p>Veuillez activer JavaScript</p>
+    </noscript>
+</body>
+
+</html>

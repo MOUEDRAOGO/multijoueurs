@@ -130,8 +130,8 @@ function createEnemies(largeurEcran, offset) {
 
     var removeFish = 0;
 
-    var nageFish1Reverse = function(i) {
-        window.requestAnimationFrame(function(timestampActuel) {
+    var nageFish1Reverse = function (i) {
+        window.requestAnimationFrame(function (timestampActuel) {
             if (timestampInitial === undefined) {
                 timestampInitial = timestampActuel;
             }
@@ -187,79 +187,6 @@ function createEnemies(largeurEcran, offset) {
 
 
                 /////////////////////////////////////////////
-
-
-                // console.log('Position gauche poisson ' + document.getElementById('fish1ReverseContainer').offsetLeft);
-
-                // console.log('Position gauche requin ' + (400 + document.getElementById('sharkRunContainer').offsetLeft));
-
-                // if ((document.getElementById('fish1ReverseContainer').offsetLeft < (parseFloat(sharkRunContainerADeplacer.style.width) + document.getElementById('sharkRunContainer').offsetLeft)) && (document.getElementById('fish1ReverseContainer').offsetTop < (parseFloat(sharkRunContainerADeplacer.style.width) + document.getElementById('sharkRunContainer').offsetTop))
-                // ) {
-
-                //     alert("collision Christophe");
-
-                // }
-
-
-                /////////////////////////////////////////////
-
-                //1ere condition
-
-                // var collisionVerticale = parseFloat(sharkRunContainerADeplacer.style.left) + parseFloat(sharkRunContainerADeplacer.style.width) > parseFloat(fish1ReverseContainerADeplacer.style.left) && parseFloat(sharkRunContainerADeplacer.style.left) < parseFloat(fish1ReverseContainerADeplacer.style.left) + parseFloat(fish1ReverseContainerADeplacer.style.width);
-
-                // // console.log(parseFloat(sharkRunContainerADeplacer.style.left) + ' parseFloat(sharkRunContainerADeplacer.style.left)'); RETOUR VALEUR OK
-                // // console.log(parseFloat(sharkRunContainerADeplacer.style.width) + ' parseFloat//:(sharkRunContainerADeplacer.style.width)'); RETOUR VALEUR OK
-                // // console.log(parseFloat(fish1ReverseContainerADeplacer.style.left) + ' parseFloat(fish1ReverseContainerADeplacer.style.left)'); RETOUR VALEUR OK
-                // // console.log(parseFloat(fish1ReverseContainerADeplacer.style.width) + 'parseFloat(fish1ReverseContainerADeplacer.style.width)'); RETOUR VALEUR OK
-
-                // // 2ieme condition 
-
-                // var collisionHorizontale = parseFloat(sharkRunContainerADeplacer.style.top) < (parseFloat(fish1ReverseContainerADeplacer.style.top) + parseFloat(fish1ReverseContainerADeplacer.style.height)) && (parseFloat(sharkRunContainerADeplacer.style.top) + parseFloat(sharkRunContainerADeplacer.style.height)) > parseFloat(fish1ReverseContainerADeplacer.style.top);
-                // //console.log(sharkRunContainerADeplacer);
-
-                // // console.log(sharkRunContainerADeplacer.style.top + ' parseFloat(sharkRunContainerADeplacer.style.top)');
-                // // console.log(sharkRunContainerADeplacer.style.height + ' parseFloat(sharkRunContainerADeplacer.style.height)');
-                // //console.log(fish1ReverseContainerADeplacer.offsetTop + 'OFFSET TOP');
-                // // Travailler avec les oofset top plutot que les style.top qui  ne sont pas définis
-                // // console.log(fish1ReverseContainerADeplacer.style.top + ' parseFloat(fish1ReverseContainerADeplacer.style.top)');
-                // // console.log(fish1ReverseContainerADeplacer.style.height + ' parseFloat(fish1ReverseContainerADeplacer.style.height)');
-
-
-
-
-
-
-                // // 3ieme condition : La collision
-                // // Si
-                // //     Requin ET Poisson sont présents sur la même colonne.
-                // // ET
-                // //     Requin ET Poisson sont présents sur la même ligne.  
-                // // ALORS
-
-                // //     COLLISION CONDITION !
-
-
-                // var collisionVerticaleEtHorizontale = collisionVerticale && collisionHorizontale
-
-                // if (collisionVerticaleEtHorizontale) {
-                //     alert("collision verticale et horizontale")
-                // }
-
-
-                /////////////////////////////////////////////
-
-
-                // if (parseFloat(sharkRunContainerADeplacer.style.left) + parseFloat(sharkRunContainerADeplacer.style.width) > parseFloat(fish1ReverseContainerADeplacer.style.left) && parseFloat(sharkRunContainerADeplacer.style.left) < parseFloat(fish1ReverseContainerADeplacer.style.left) + parseFloat(fish1ReverseContainerADeplacer.style.width) && parseFloat(sharkRunContainerADeplacer.style.top) < parseFloat(fish1ReverseContainerADeplacer.style.top) + parseFloat(fish1ReverseContainerADeplacer.style.height) && parseFloat(sharkRunContainerADeplacer.style.top) + parseFloat(sharkRunContainerADeplacer.style.height) > parseFloat(fish1ReverseContainerADeplacer.style.top)) {
-
-                //     alert("collision verticale et horizontale")
-
-                // }
-
-
-
-
-
-                /******** fin ESSAIS COLLISIONS */
 
 
             }

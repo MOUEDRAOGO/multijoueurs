@@ -1,4 +1,6 @@
-var ConstructeurShark = function() {
+var ConstructeurShark = function () {
+
+    this.id = '';
 
     this.gestesDuShark = { // je creer un objet qui rassemble tous les gestes de mon personnage
         sharkAttack: [{ // je cree un tableau avec toutes les images du geste sharkAttack
@@ -99,7 +101,7 @@ var ConstructeurShark = function() {
     }; // fin du gestesDuSharkAttack 
 
     this.decalageLeftShark = -5; // largeur de depart
-    this.decalageTop = 200; // hauteur de depart
+    this.decalageTop = 200; // hauteur de depart  var randomHeight = Math.random() * (gameHeight * 0.9 - topBackground) + topBackground; // 0.9 pour reduire la hauteur du ramdom afin que le poisson n apparaisse pas hors du cadre du jeu
     this.vitesseShark = 10; // vitesse deplacement shark
     this.continuerSharkRun = true;
     this.compteurPourAnimationRequin = 0;
@@ -107,7 +109,7 @@ var ConstructeurShark = function() {
     this.sharkContainerADeplacer = document.getElementById('sharkContainer');
     this.sharkContenuAInserer = document.getElementById('sharkContenu');
 
-    this.animationSharkRun = function(i) {
+    this.animationSharkRun = function (i) {
 
         this.sharkContainerADeplacer.style.width = this.gestesDuShark.sharkAttack[i].largeurMasque;
         //console.log('gestesDuShark.sharkRun[i].largeurMasque ok')

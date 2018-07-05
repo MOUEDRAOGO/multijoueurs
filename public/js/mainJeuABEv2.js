@@ -18,7 +18,10 @@ window.requestAnimationFrame =
 
 /****  fin Gestion de la compatibilité */
 
+var websocketConnexion = io('http://192.168.104.99:8888');
+
 window.addEventListener('DOMContentLoaded', function () {
+
 
 
     /**** GESTION DU LOGIN */
@@ -27,55 +30,47 @@ window.addEventListener('DOMContentLoaded', function () {
     var formulaireRequin2 = window.document.getElementById('formPseudoRequin2');
 
     // A l'établissement de la connexion
-    uneConnexionWebsocket.addEventListener('open', function (event) {
+    websocketConnexion.addEventListener('open', function (event) {
 
         // A la soumission du formulaireRequin1
         formulaireRequin1.addEventListener('submit', function (event) {
             // On annule le comportement par défaut du formulaireRequin1
             event.preventDefault();
             // On récupére les valeur des champs du formulaireRequin1
-            var elementPseudo = window.document.getElementById('pseudoRequin1');
-            var elementMotDePasse = window.document.getElementById('motDePasseRequin1');
+            var elementPseudoRequin1 = window.document.getElementById('pseudoRequin1');
+            var elementMotDePasseRequin1 = window.document.getElementById('motDePasseRequin1');
 
             // ... qu'on place dans un objet
-            var identifiant = {
-                pseudoValue: elementPseudo.value,
-                motDePasseValue: elementMotDePasse.value
+
+            dataIdentifiantRequin1 = {
+                propElementPseudoRequin1: elementPseudoRequin1,
+                propElementMotDePasseRequin1: elementMotDePasseRequin1,
+
             };
 
-            // On transforme l objet en chaine de caractere
-            var identifiantEnTexte = JSON.stringify(identifiant);
-
             // On envoie cette chaine de caractère au serveur.
-            websocketConnexion.send(identifiantEnTexte);
+            websocketConnexion.emit('IdentifiantRequin1', dataIdentifiantRequin1);
         });
 
+        // A la soumission du formulaireRequin2
         formulaireRequin2.addEventListener('submit', function (event) {
             // On annule le comportement par défaut du formulaireRequin2
             event.preventDefault();
             // On récupére les valeur des champs du formulaireRequin2
-            var elementPseudo = window.document.getElementById('pseudoRequin2');
-            var elementMotDePasse = window.document.getElementById('motDePasseRequin2');
+            var elementPseudoRequin2 = window.document.getElementById('pseudoRequin2');
+            var elementMotDePasseRequin2 = window.document.getElementById('motDePasseRequin2');
 
             // ... qu'on place dans un objet
-            var identifiant = {
-                pseudoValue: elementPseudo.value,
-                motDePasseValue: elementMotDePasse.value
+            dataIdentifiantRequin2 = {
+                propElementPseudoRequin2: elementPseudoRequin2,
+                propElementMotDePasseRequin2: elementMotDePasseRequin2,
+
             };
 
-            // On transforme l objet en chaine de caractere
-            var identifiantEnTexte = JSON.stringify(identifiant);
-
             // On envoie cette chaine de caractère au serveur.
-            websocketConnexion.send(identifiantEnTexte);
+            websocketConnexion.emit('IdentifiantRequin2', dataIdentifiantRequin2);
         });
 
-        // En cas de réception de motDePasseValue depuis le serveur.
-        websocketConnexion.addEventListener('motDePasseValue', function (motDePasseValueEvent) {
-            var identifiant = JSON.parse(motDePasseValueEvent.data);
-
-            motDePasseValues.innerHTML = '<p><strong>' + identifiant.pseudoValue + '</strong>:</p><p><i>' + identifiant.motDePasseValue + ' </i></p>' + motDePasseValues.innerHTML;
-        });
     });
 
     /****FIN GESTION LOGIN */
@@ -89,8 +84,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
     /*********************************** */
-
-    var websocketConnection = io('http://192.168.104.99:8888'); // handshake ; WEBSOCKETCONNEXION IO 
 
 
     var shark = new ConstructeurShark(); // est execute une fois que le DOM est charge
@@ -186,8 +179,8 @@ window.addEventListener('DOMContentLoaded', function () {
         window.location.reload();
 
         dataReload = {
-            propReload: window.location.reload();
-        }
+            propReload: window.location.reload()
+        };
 
         // A chaque clic de souris sur la div boutonRejouer on envoie l'action au back end.
         websocketConnection.emit('boutonRejouer', dataReload); // .emit boutonRejouer
@@ -210,7 +203,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
         dataBoutonInterrogation = {
             propDivRegleJeu: divRegleJeu,
-            propReload: window.location.reload();
+            propReload: window.location.reload()
         }
 
         // A chaque clic de souris sur la div boutonInterrogation on envoie l'action au back end.
@@ -219,8 +212,24 @@ window.addEventListener('DOMContentLoaded', function () {
     });
 
 
+    var dataKeydown = {
+        propSharkId: 'shark' + 'return math floor',
+        propThisCode: this.code,
+        propSharkAnimationSharkRun: shark.animationSharkRun(shark.compteurPourAnimationRequin),
+        propSharkCompteurPourAnimationRequinPlusPlus: shark.compteurPourAnimationRequin++,
+        propSharkSharkContainerADeplacerStyleLeft: shark.sharkContainerADeplacer.style.left,
+        propSharkSharkContainerADeplacerStyleTop: shark.sharkContainerADeplacer.style.top,
+    };
+
+
     //ecoute les touches du clavier
     window.addEventListener("keydown", function (event) {
+
+        // verifier si shark existe ; si non creer un shark
+        if (!shark) {
+            shark = window.document.createElement(new ConstructeurShark());
+            window.document.body.appendChild(shark);
+        }
 
         //recupere le code de la touche
         this.code = event.keyCode;
@@ -276,13 +285,6 @@ window.addEventListener('DOMContentLoaded', function () {
         shark.sharkContainerADeplacer.style.top = shark.decalageTop + 'px';
         //console.log('sharkContainerADeplacer.style.top ok')
 
-        dataKeydown = {
-            propThisCode: this.code,
-            propSharkAnimationSharkRun: shark.animationSharkRun(shark.compteurPourAnimationRequin),
-            propSharkCompteurPourAnimationRequinPlusPlus: shark.compteurPourAnimationRequin++,
-            propSharkSharkContainerADeplacerStyleLeft: shark.sharkContainerADeplacer.style.left,
-            propSharkSharkContainerADeplacerStyleTop: shark.sharkContainerADeplacer.style.top,
-        }
 
         // A chaque utilisation d'une touche definit danxs le keydown on envoie l'action au back end.
         websocketConnection.emit('keydown', dataKeydown); // .emit keydown
